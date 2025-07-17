@@ -24,4 +24,18 @@ describe("TestModifyVariable", () => {
 
     assert.equal(newX.toNumber(), 1337);
   });
+
+  it('should change "label" for "chai"', async () => {
+    const ModifyVariable = await ethers.getContractFactory("ModifyVariable");
+    const contract = await ModifyVariable.deploy(0);
+    await contract.deployed();
+
+    const initialLabel = await contract.label();
+    assert.equal(initialLabel.toString(), "blank");
+
+    await contract.setLabel("chai");
+
+    const updatedLabel = await contract.label();
+    assert.equal(updatedLabel.toString(), "chai");
+  });
 });
