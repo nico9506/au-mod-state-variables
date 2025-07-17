@@ -1,3 +1,7 @@
+/*
+ * Deploy contract "ModifyVariable.sol" on SEPOLIA
+ */
+
 const ethers = require("ethers");
 const hre = require("hardhat");
 require("dotenv").config();
